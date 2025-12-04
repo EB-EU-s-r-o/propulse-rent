@@ -8,18 +8,18 @@ interface KanbanBoardProps {
 }
 
 const stages = [
-  { id: 'New', label: 'New', color: 'bg-blue-500' },
-  { id: 'Qualified', label: 'Qualified', color: 'bg-purple-500' },
-  { id: 'Proposal', label: 'Proposal', color: 'bg-yellow-500' },
-  { id: 'Negotiation', label: 'Negotiation', color: 'bg-orange-500' },
-  { id: 'Won', label: 'Won', color: 'bg-green-500' },
-  { id: 'Lost', label: 'Lost', color: 'bg-red-500' },
+  { id: 'New', label: 'New', color: 'bg-sky-500' },
+  { id: 'Qualified', label: 'Qualified', color: 'bg-violet-500' },
+  { id: 'Proposal', label: 'Proposal', color: 'bg-amber-400' },
+  { id: 'Negotiation', label: 'Negotiation', color: 'bg-orange-400' },
+  { id: 'Won', label: 'Won', color: 'bg-emerald-500' },
+  { id: 'Lost', label: 'Lost', color: 'bg-rose-500' },
 ];
 
 const KanbanBoard = ({ leads }: KanbanBoardProps) => {
   const [localLeads] = useState(leads);
 
-  const getLeadsByStage = (stage: string) => 
+  const getLeadsByStage = (stage: string) =>
     localLeads.filter(lead => lead.stage === stage);
 
   const getTotalValue = (stageLeads: Lead[]) =>
@@ -37,13 +37,17 @@ const KanbanBoard = ({ leads }: KanbanBoardProps) => {
               {/* Header */}
               <div className="flex items-center justify-between mb-4 px-1">
                 <div className="flex items-center gap-2">
-                  <div className={`w-2 h-2 rounded-full ${stage.color}`} />
+                  <div className={`w-2 h-2 rounded-none ${stage.color}`} />
                   <h3 className="text-sm font-semibold text-foreground">{stage.label}</h3>
-                  <span className="text-xs bg-secondary text-muted-foreground px-2 py-0.5 rounded-full">
+                  <span className="text-xs bg-secondary text-muted-foreground px-2 py-0.5 rounded-none">
                     {stageLeads.length}
                   </span>
                 </div>
-                <button className="p-1 text-muted-foreground hover:text-foreground hover:bg-secondary rounded transition-colors">
+                <button
+                  className="p-1 text-muted-foreground hover:text-foreground hover:bg-secondary rounded-none transition-colors"
+                  title="Pridať nový lead do tejto fázy (čoskoro)"
+                  aria-label="Pridať lead"
+                >
                   <Plus size={16} />
                 </button>
               </div>

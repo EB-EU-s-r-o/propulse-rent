@@ -1,0 +1,32 @@
+{
+    "dashboard": {
+        "title": "แดชบอร์ด",
+        "properties": "อสังหาริมทรัพย์",
+        "leads": "ลูกค้าเป้าหมาย",
+        "deals": "ข้อเสนอ",
+        "pipeline": "ไปป์ไลน์",
+        "reports": "รายงาน",
+        "settings": "การตั้งค่า",
+        "accounts": "บัญชี",
+        "map": "แผนที่"
+    },
+    "stats": {
+        "total_properties": "ทรัพย์สินทั้งหมด",
+        "active_units": "ยูนิตที่ใช้งานอยู่",
+        "total_leads": "ลูกค้าเป้าหมายทั้งหมด",
+        "revenue": "รายได้"
+    },
+    "actions": {
+        "new_lead": "ลูกค้าใหม่",
+        "new_deal": "ข้อเสนอใหม่",
+        "import": "นำเข้าข้อมูล",
+        "export": "ส่งออกข้อมูล",
+        "filter": "ตัวกรอง"
+    },
+    "status": {
+        "available": "ว่าง",
+        "reserved": "จองแล้ว",
+        "sold": "ขายแล้ว",
+        "rented": "เช่าแล้ว"
+    }
+}

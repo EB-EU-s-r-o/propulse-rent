@@ -1,0 +1,94 @@
+[
+    {
+        "id": "l_001",
+        "name": "Jana Nováková",
+        "email": "jana.novakova@example.com",
+        "phone": "+421901123456",
+        "interestPropertyIds": [
+            "prop_001"
+        ],
+        "stage": "new",
+        "value": 5200000,
+        "source": "Web Form",
+        "createdAt": "2025-03-01T10:00:00Z"
+    },
+    {
+        "id": "l_002",
+        "name": "Peter Kováč",
+        "email": "peter.kovac@example.com",
+        "phone": "+421902123456",
+        "interestPropertyIds": [
+            "prop_002"
+        ],
+        "stage": "qualified",
+        "value": 12500000,
+        "source": "Referral",
+        "createdAt": "2025-02-28T14:30:00Z"
+    },
+    {
+        "id": "l_003",
+        "name": "Michael Smith",
+        "email": "m.smith@global.com",
+        "phone": "+15550123456",
+        "interestPropertyIds": [
+            "prop_003"
+        ],
+        "stage": "proposal",
+        "value": 28000000,
+        "source": "Agent",
+        "createdAt": "2025-02-25T09:15:00Z"
+    },
+    {
+        "id": "l_004",
+        "name": "Elena Petrova",
+        "email": "elena.p@example.ru",
+        "phone": "+79991234567",
+        "interestPropertyIds": [
+            "prop_004"
+        ],
+        "stage": "negotiation",
+        "value": 5500000,
+        "source": "Facebook",
+        "createdAt": "2025-02-20T16:45:00Z"
+    },
+    {
+        "id": "l_005",
+        "name": "Hans Müller",
+        "email": "h.muller@example.de",
+        "phone": "+491511234567",
+        "interestPropertyIds": [
+            "prop_001",
+            "prop_004"
+        ],
+        "stage": "new",
+        "value": 4500000,
+        "source": "Web Form",
+        "createdAt": "2025-03-02T08:20:00Z"
+    },
+    {
+        "id": "l_006",
+        "name": "Sarah Jones",
+        "email": "s.jones@example.uk",
+        "phone": "+447700900123",
+        "interestPropertyIds": [
+            "prop_002"
+        ],
+        "stage": "won",
+        "value": 14200000,
+        "source": "Walk-in",
+        "createdAt": "2025-01-15T11:00:00Z"
+    },
+    {
+        "id": "l_007",
+        "name": "David Lee",
+        "email": "d.lee@asia.com",
+        "phone": "+66812345678",
+        "interestPropertyIds": [
+            "prop_003"
+        ],
+        "stage": "lost",
+        "value": 32000000,
+        "source": "Web Form",
+        "createdAt": "2025-01-10T13:30:00Z"
+    }
+]

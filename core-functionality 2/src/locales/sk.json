@@ -1,0 +1,32 @@
+{
+    "dashboard": {
+        "title": "Nástenka",
+        "properties": "Nehnuteľnosti",
+        "leads": "Záujemcovia",
+        "deals": "Obchody",
+        "pipeline": "Pipeline",
+        "reports": "Reporty",
+        "settings": "Nastavenia",
+        "accounts": "Účty",
+        "map": "Mapa"
+    },
+    "stats": {
+        "total_properties": "Celkom nehnuteľností",
+        "active_units": "Aktívne jednotky",
+        "total_leads": "Celkom záujemcov",
+        "revenue": "Tržby"
+    },
+    "actions": {
+        "new_lead": "Nový záujemca",
+        "new_deal": "Nový obchod",
+        "import": "Importovať dáta",
+        "export": "Exportovať dáta",
+        "filter": "Filter"
+    },
+    "status": {
+        "available": "Voľné",
+        "reserved": "Rezervované",
+        "sold": "Predané",
+        "rented": "Prenajaté"
+    }
+}

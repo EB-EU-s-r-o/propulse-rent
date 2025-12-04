@@ -1,4 +1,4 @@
-// RENT Dashboard 2026 - Mock Data
+// ROOF21 Dashboard - Mock Data
 
 export interface Property {
   id: string;

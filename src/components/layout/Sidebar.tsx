@@ -1,12 +1,12 @@
-import { 
-  LayoutDashboard, 
-  Building2, 
-  LayoutGrid, 
-  Users, 
-  Zap, 
-  Briefcase, 
-  PieChart, 
-  Settings, 
+import {
+  LayoutDashboard,
+  Building2,
+  LayoutGrid,
+  Users,
+  Zap,
+  Briefcase,
+  PieChart,
+  Settings,
   ChevronLeft,
   ChevronRight,
   LogOut,
@@ -35,18 +35,18 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
 
   return (
     <aside
-      className={`fixed left-0 top-0 h-screen bg-sidebar border-r border-sidebar-border transition-all duration-300 z-50 flex flex-col
+      className={`fixed left-0 top-0 h-screen bg-white border-r border-border transition-all duration-300 z-50 flex flex-col
       ${isOpen ? 'w-64' : 'w-20'}`}
     >
       {/* Logo */}
-      <div className="h-16 flex items-center justify-between px-4 border-b border-sidebar-border">
+      <div className="h-16 flex items-center justify-between px-4 border-b border-border">
         <Link to="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center shadow-glow">
-            <span className="font-bold text-primary-foreground text-lg">R</span>
+          <div className="w-10 h-10 bg-black text-white rounded-none flex items-center justify-center">
+            <span className="font-bold text-lg">R</span>
           </div>
           {isOpen && (
-            <span className="text-xl font-bold tracking-tight text-foreground animate-fade-in">
-              RENT<span className="text-primary">2026</span>
+            <span className="text-xl font-bold tracking-tight text-black animate-fade-in">
+              ROOF<span className="font-light">21</span>
             </span>
           )}
         </Link>
@@ -55,15 +55,15 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="absolute -right-3 top-20 bg-secondary border border-border text-muted-foreground rounded-full p-1.5 hover:text-foreground hover:bg-primary hover:border-primary transition-all z-50"
+        className="absolute -right-3 top-20 bg-white border border-border text-muted-foreground rounded-none p-1.5 hover:text-black hover:border-black transition-all z-50"
       >
         {isOpen ? <ChevronLeft size={14} /> : <ChevronRight size={14} />}
       </button>
 
       {/* Navigation */}
-      <nav className="flex-1 px-3 py-6 space-y-1 overflow-y-auto">
+      <nav className="flex-1 px-0 py-6 space-y-0 overflow-y-auto">
         {navItems.map((item) => {
-          const isActive = currentPath === item.href || 
+          const isActive = currentPath === item.href ||
             (item.href !== '/' && currentPath.startsWith(item.href));
           const Icon = item.icon;
 
@@ -71,31 +71,31 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
             <Link
               key={item.name}
               to={item.href}
-              className={`nav-item group relative ${isActive ? 'active' : ''}`}
+              className={`nav-item group relative ${isActive ? 'active bg-secondary/50 border-l-2 border-black' : 'hover:bg-secondary/30 border-l-2 border-transparent'}`}
             >
               <Icon
                 size={20}
-                className={`${isActive ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground'} transition-colors flex-shrink-0`}
+                className={`${isActive ? 'text-black' : 'text-muted-foreground group-hover:text-black'} transition-colors flex-shrink-0 ml-3`}
               />
 
               {isOpen && (
-                <span className="truncate animate-fade-in">{item.name}</span>
+                <span className={`truncate animate-fade-in ml-3 ${isActive ? 'font-semibold' : 'font-medium'}`}>{item.name}</span>
               )}
 
               {/* Badge */}
               {item.badge && (
                 isOpen ? (
-                  <span className="ml-auto bg-primary text-primary-foreground text-xs font-bold px-2 py-0.5 rounded-full">
+                  <span className="ml-auto mr-3 bg-black text-white text-xs font-bold px-2 py-0.5 rounded-none">
                     {item.badge}
                   </span>
                 ) : (
-                  <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-primary ring-2 ring-sidebar" />
+                  <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-black" />
                 )
               )}
 
               {/* Tooltip */}
               {!isOpen && (
-                <div className="absolute left-full ml-3 px-2 py-1 bg-popover text-popover-foreground text-xs rounded-md opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap shadow-lg border border-border transition-opacity">
+                <div className="absolute left-full ml-3 px-2 py-1 bg-black text-white text-xs rounded-none opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap shadow-lg transition-opacity">
                   {item.name}
                 </div>
               )}
@@ -105,17 +105,17 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
       </nav>
 
       {/* Footer */}
-      <div className="px-3 py-4 border-t border-sidebar-border space-y-1">
+      <div className="px-0 py-4 border-t border-border space-y-0">
         <Link
           to="/settings"
-          className="nav-item group"
+          className="nav-item group hover:bg-secondary/30 border-l-2 border-transparent"
         >
-          <Settings size={20} className="text-muted-foreground group-hover:text-foreground" />
-          {isOpen && <span>Settings</span>}
+          <Settings size={20} className="text-muted-foreground group-hover:text-black ml-3" />
+          {isOpen && <span className="ml-3 font-medium">Settings</span>}
         </Link>
-        <button className="nav-item group w-full text-destructive hover:bg-destructive/10">
-          <LogOut size={20} />
-          {isOpen && <span>Logout</span>}
+        <button className="nav-item group w-full text-destructive hover:bg-destructive/10 border-l-2 border-transparent">
+          <LogOut size={20} className="ml-3" />
+          {isOpen && <span className="ml-3 font-medium">Logout</span>}
         </button>
       </div>
     </aside>

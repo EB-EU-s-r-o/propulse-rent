@@ -1,4 +1,5 @@
 import { AreaChart, Area, ResponsiveContainer, Tooltip } from 'recharts';
+import { useEffect, useRef } from 'react';
 
 interface MiniChartProps {
   data: { value: number }[];
@@ -7,8 +8,19 @@ interface MiniChartProps {
 }
 
 const MiniChart = ({ data, color = 'hsl(217, 91%, 60%)', height = 60 }: MiniChartProps) => {
+  const chartRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (chartRef.current) {
+      chartRef.current.style.setProperty('--chart-height', `${height}px`);
+    }
+  }, [height]);
+
   return (
-    <div className="w-full" style={{ height }}>
+    <div
+      ref={chartRef}
+      className="w-full h-[var(--chart-height)]"
+    >
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
           <defs>
@@ -21,7 +33,7 @@ const MiniChart = ({ data, color = 'hsl(217, 91%, 60%)', height = 60 }: MiniChar
             contentStyle={{
               background: 'hsl(240, 10%, 6%)',
               border: '1px solid hsl(240, 5%, 18%)',
-              borderRadius: '8px',
+              borderRadius: '0px',
               fontSize: '12px',
               fontFamily: 'JetBrains Mono, monospace'
             }}

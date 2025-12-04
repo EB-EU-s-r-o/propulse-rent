@@ -1,0 +1,92 @@
+[
+    {
+        "id": "prop_001",
+        "title": "Palm Oasis Residence",
+        "slug": "palm-oasis-residence",
+        "description": "Luxusný development v centre Pattaye s modernými apartmánmi a kompletnou vybavenosťou. Ponúka bazén, fitnescentrum a 24/7 strážnu službu.",
+        "location": "Pattaya, Thailand",
+        "type": "Condo",
+        "status": "Active",
+        "priceRange": "3.5M - 7.2M THB",
+        "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80",
+        "features": [
+            "Swimming Pool",
+            "Gym",
+            "Sauna",
+            "Parking",
+            "24/7 Security"
+        ],
+        "createdAt": "2025-01-15T08:00:00Z"
+    },
+    {
+        "id": "prop_002",
+        "title": "Sunset Villa Heights",
+        "slug": "sunset-villa-heights",
+        "description": "Exkluzívne vily s výhľadom na more a súkromným bazénom. Ideálne pre rodiny hľadajúce pokoj a luxus.",
+        "location": "Hua Hin, Thailand",
+        "type": "Villa",
+        "status": "Active",
+        "priceRange": "8M - 15M THB",
+        "image": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80",
+        "features": [
+            "Private Pool",
+            "Garden",
+            "Sea View",
+            "Gated Community"
+        ],
+        "createdAt": "2025-01-20T10:30:00Z"
+    },
+    {
+        "id": "prop_003",
+        "title": "Bangkok Sky Towers",
+        "slug": "bangkok-sky-towers",
+        "description": "Moderné bývanie v srdci biznis centra Bangkoku. Penthousy s panoramatickým výhľadom na mesto.",
+        "location": "Bangkok, Thailand",
+        "type": "Penthouse",
+        "status": "Upcoming",
+        "priceRange": "15M - 35M THB",
+        "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+        "features": [
+            "Rooftop Bar",
+            "Infinity Pool",
+            "Concierge",
+            "Smart Home"
+        ],
+        "createdAt": "2025-02-01T09:15:00Z"
+    },
+    {
+        "id": "prop_004",
+        "title": "Phuket Lagoon Resort",
+        "slug": "phuket-lagoon-resort",
+        "description": "Investičné apartmány priamo pri lagúne s garantovaným výnosom z prenájmu.",
+        "location": "Phuket, Thailand",
+        "type": "Condo",
+        "status": "Active",
+        "priceRange": "4.2M - 9.5M THB",
+        "image": "https://images.unsplash.com/photo-1580587771525-78b9dba3b91d?auto=format&fit=crop&w=800&q=80",
+        "features": [
+            "Beach Access",
+            "Rental Management",
+            "Spa",
+            "Restaurant"
+        ],
+        "createdAt": "2025-02-10T14:20:00Z"
+    },
+    {
+        "id": "prop_005",
+        "title": "Chiang Mai Mountain View",
+        "slug": "chiang-mai-mountain-view",
+        "description": "Pokojné bývanie v horách na severe Thajska. Tradičná architektúra s moderným komfortom.",
+        "location": "Chiang Mai, Thailand",
+        "type": "House",
+        "status": "Sold Out",
+        "priceRange": "5M - 12M THB",
+        "image": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=800&q=80",
+        "features": [
+            "Mountain View",
+            "Organic Garden",
+            "Yoga Studio"
+        ],
+        "createdAt": "2025-01-05T11:00:00Z"
+    }
+]

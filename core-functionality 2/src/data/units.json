@@ -1,0 +1,112 @@
+[
+    {
+        "id": "u_001",
+        "propertyId": "prop_001",
+        "unitNumber": "A-1205",
+        "price": 5200000,
+        "size": 45,
+        "floor": 12,
+        "status": "Available",
+        "bedrooms": 1,
+        "bathrooms": 1
+    },
+    {
+        "id": "u_002",
+        "propertyId": "prop_001",
+        "unitNumber": "B-0804",
+        "price": 4800000,
+        "size": 42,
+        "floor": 8,
+        "status": "Reserved",
+        "bedrooms": 1,
+        "bathrooms": 1
+    },
+    {
+        "id": "u_003",
+        "propertyId": "prop_001",
+        "unitNumber": "C-1501",
+        "price": 7100000,
+        "size": 68,
+        "floor": 15,
+        "status": "Available",
+        "bedrooms": 2,
+        "bathrooms": 2
+    },
+    {
+        "id": "u_004",
+        "propertyId": "prop_002",
+        "unitNumber": "V-05",
+        "price": 12500000,
+        "size": 180,
+        "floor": 1,
+        "status": "Available",
+        "bedrooms": 3,
+        "bathrooms": 3
+    },
+    {
+        "id": "u_005",
+        "propertyId": "prop_002",
+        "unitNumber": "V-12",
+        "price": 14200000,
+        "size": 220,
+        "floor": 1,
+        "status": "Sold",
+        "bedrooms": 4,
+        "bathrooms": 4
+    },
+    {
+        "id": "u_006",
+        "propertyId": "prop_003",
+        "unitNumber": "PH-45A",
+        "price": 28000000,
+        "size": 250,
+        "floor": 45,
+        "status": "Available",
+        "bedrooms": 4,
+        "bathrooms": 5
+    },
+    {
+        "id": "u_007",
+        "propertyId": "prop_003",
+        "unitNumber": "PH-45B",
+        "price": 32000000,
+        "size": 280,
+        "floor": 45,
+        "status": "Reserved",
+        "bedrooms": 4,
+        "bathrooms": 5
+    },
+    {
+        "id": "u_008",
+        "propertyId": "prop_004",
+        "unitNumber": "L-101",
+        "price": 4200000,
+        "size": 38,
+        "floor": 1,
+        "status": "Available",
+        "bedrooms": 1,
+        "bathrooms": 1
+    },
+    {
+        "id": "u_009",
+        "propertyId": "prop_004",
+        "unitNumber": "L-205",
+        "price": 5500000,
+        "size": 55,
+        "floor": 2,
+        "status": "Available",
+        "bedrooms": 2,
+        "bathrooms": 1
+    },
+    {
+        "id": "u_010",
+        "propertyId": "prop_005",
+        "unitNumber": "H-01",
+        "price": 5000000,
+        "size": 120,
+        "floor": 2,
+        "status": "Sold",
+        "bedrooms": 3,
+        "bathrooms": 2
+    }
+]

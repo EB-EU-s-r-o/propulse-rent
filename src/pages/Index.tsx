@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { 
-  Building2, 
-  Users, 
-  TrendingUp, 
+import {
+  Building2,
+  Users,
+  TrendingUp,
   CreditCard,
   ArrowRight,
   Calendar
@@ -12,11 +12,11 @@ import PropertyCard from '@/components/dashboard/PropertyCard';
 import KanbanBoard from '@/components/dashboard/KanbanBoard';
 import RecentPayments from '@/components/dashboard/RecentPayments';
 import MiniChart from '@/components/dashboard/MiniChart';
-import { 
-  properties, 
-  leads, 
-  payments, 
-  dashboardStats 
+import {
+  properties,
+  leads,
+  payments,
+  dashboardStats
 } from '@/data/mockData';
 
 // Sample chart data
@@ -41,8 +41,8 @@ const Index = () => {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
         <div className="flex flex-col items-center gap-4">
-          <div className="w-12 h-12 gradient-primary rounded-xl animate-pulse flex items-center justify-center">
-            <span className="font-bold text-primary-foreground text-xl">R</span>
+          <div className="w-12 h-12 bg-black text-white rounded-none animate-pulse flex items-center justify-center">
+            <span className="font-bold text-xl">R</span>
           </div>
           <p className="text-muted-foreground text-sm">Loading dashboard...</p>
         </div>
@@ -99,23 +99,9 @@ const Index = () => {
           change="+8.2%"
           changeType="positive"
           icon={CreditCard}
-          iconColor="text-purple-400"
+          iconColor="text-accent"
           delay={300}
         />
-      </div>
-
-      {/* Revenue Chart */}
-      <div className="stat-card">
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <h2 className="text-lg font-semibold text-foreground">Revenue Trend</h2>
-            <p className="text-sm text-muted-foreground">Last 7 months performance</p>
-          </div>
-          <span className="text-2xl font-bold font-mono text-success">
-            ฿{(dashboardStats.monthlyRevenue / 1000000).toFixed(2)}M
-          </span>
-        </div>
-        <MiniChart data={revenueData} height={100} />
       </div>
 
       {/* Properties Section */}
@@ -125,7 +111,10 @@ const Index = () => {
             <h2 className="text-xl font-semibold text-foreground">Featured Properties</h2>
             <p className="text-sm text-muted-foreground">Your top performing properties</p>
           </div>
-          <button className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 font-medium transition-colors">
+          <button
+            className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 font-medium transition-colors"
+            title="Zobraziť všetky nehnuteľnosti (čoskoro)"
+          >
             View All <ArrowRight size={16} />
           </button>
         </div>
@@ -143,7 +132,10 @@ const Index = () => {
             <h2 className="text-xl font-semibold text-foreground">Lead Pipeline</h2>
             <p className="text-sm text-muted-foreground">Track your sales pipeline</p>
           </div>
-          <button className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 font-medium transition-colors">
+          <button
+            className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 font-medium transition-colors"
+            title="Otvoriť CRM systém s plnou správou leadov (čoskoro)"
+          >
             Open CRM <ArrowRight size={16} />
           </button>
         </div>
@@ -158,13 +150,30 @@ const Index = () => {
               <h2 className="text-xl font-semibold text-foreground">Recent Payments</h2>
               <p className="text-sm text-muted-foreground">Latest transactions</p>
             </div>
-            <button className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 font-medium transition-colors">
+            <button
+              className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 font-medium transition-colors"
+              title="Zobraziť účtovnú knihu s históriou platieb (čoskoro)"
+            >
               View Ledger <ArrowRight size={16} />
             </button>
           </div>
           <RecentPayments payments={payments} />
         </div>
       </section>
+
+      {/* Revenue Chart - moved to end */}
+      <div className="stat-card">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h2 className="text-lg font-semibold text-foreground">Revenue Trend</h2>
+            <p className="text-sm text-muted-foreground">Last 7 months performance</p>
+          </div>
+          <span className="text-2xl font-bold font-mono text-success">
+            ฿{(dashboardStats.monthlyRevenue / 1000000).toFixed(2)}M
+          </span>
+        </div>
+        <MiniChart data={revenueData} height={100} />
+      </div>
     </div>
   );
 };

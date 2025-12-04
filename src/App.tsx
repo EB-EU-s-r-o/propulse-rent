@@ -10,11 +10,14 @@ import Pipeline from "./pages/Pipeline";
 import Payments from "./pages/Payments";
 import NotFound from "./pages/NotFound";
 
+import AmbientBackground from "@/components/ui/AmbientBackground";
+
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <AmbientBackground />
       <Toaster />
       <Sonner />
       <BrowserRouter>

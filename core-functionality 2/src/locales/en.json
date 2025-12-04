@@ -1,0 +1,32 @@
+{
+    "dashboard": {
+        "title": "Dashboard",
+        "properties": "Properties",
+        "leads": "Leads",
+        "deals": "Deals",
+        "pipeline": "Pipeline",
+        "reports": "Reports",
+        "settings": "Settings",
+        "accounts": "Accounts",
+        "map": "Map View"
+    },
+    "stats": {
+        "total_properties": "Total Properties",
+        "active_units": "Active Units",
+        "total_leads": "Total Leads",
+        "revenue": "Revenue"
+    },
+    "actions": {
+        "new_lead": "New Lead",
+        "new_deal": "New Deal",
+        "import": "Import Data",
+        "export": "Export Data",
+        "filter": "Filter"
+    },
+    "status": {
+        "available": "Available",
+        "reserved": "Reserved",
+        "sold": "Sold",
+        "rented": "Rented"
+    }
+}
