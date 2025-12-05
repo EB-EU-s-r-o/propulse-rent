@@ -12,32 +12,27 @@ interface DashboardStats {
 }
 
 interface DashboardStore extends DashboardStats {
+    isAppReady: boolean;
     fetchStats: () => Promise<void>;
+    initializeApp: () => Promise<void>;
 }
 
-export const useDashboardStore = create<DashboardStore>((set) => ({
+export const useDashboardStore = create<DashboardStore>((set, get) => ({
     totalProperties: 0,
     activeUnits: 0,
     totalLeads: 0,
     monthlyRevenue: 0,
     isLoading: true,
+    isAppReady: false,
 
     fetchStats: async () => {
-        set({ isLoading: true });
-
         // Simulate API delay
         await new Promise(resolve => setTimeout(resolve, 800));
 
         // Calculate stats from real data
         const totalProperties = propertiesData.length;
-
         const activeUnits = unitsData.filter(u => u.status === 'Available').length;
-
-        // Calculate leads (assuming leadsData structure matches pipelineStore)
         const totalLeads = leadsData.length;
-
-        // Calculate revenue (e.g., sum of won deals or just a mock calculation based on units sold)
-        // For now, let's sum up the price of 'Sold' units as "Revenue"
         const soldUnitsRevenue = unitsData
             .filter(u => u.status === 'Sold')
             .reduce((acc, curr) => acc + curr.price, 0);
@@ -47,7 +42,17 @@ export const useDashboardStore = create<DashboardStore>((set) => ({
             activeUnits,
             totalLeads,
             monthlyRevenue: soldUnitsRevenue,
-            isLoading: false
         });
+    },
+
+    initializeApp: async () => {
+        set({ isLoading: true, isAppReady: false });
+
+        const minDelayPromise = new Promise(resolve => setTimeout(resolve, 1500));
+        const fetchDataPromise = get().fetchStats();
+
+        await Promise.all([minDelayPromise, fetchDataPromise]);
+
+        set({ isLoading: false, isAppReady: true });
     }
 }));
