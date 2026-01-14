@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Bell, Plus, Filter, User, Menu, Zap, Search, Command } from 'lucide-react';
+import { Bell, Plus, Filter, User, Menu, Zap, Search, Command, Moon, Sun } from 'lucide-react';
 import { useDashboardStore } from '@/store/dashboardStore';
 import { UserDropdown } from './UserDropdown';
+import { useTheme } from '@/hooks/useTheme';
 
 interface HeaderProps {
   toggleSidebar: () => void;
@@ -111,6 +112,7 @@ const Header = ({ toggleSidebar, sidebarOpen }: HeaderProps) => {
 
           <div className="h-8 w-px bg-border mx-2" />
 
+          <ThemeToggle />
           <IconButton icon={<Zap size={18} />} label="Quick Actions" />
           <IconButton icon={<Filter size={18} />} label="Filters" />
 
@@ -176,5 +178,19 @@ const IconButton = ({ icon, label }: { icon: React.ReactNode; label: string }) =
     {icon}
   </button>
 );
+
+const ThemeToggle = () => {
+  const { isDark, toggleTheme } = useTheme();
+  return (
+    <button
+      onClick={toggleTheme}
+      className="p-2 text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-all hover:scale-110 active:scale-95"
+      aria-label="Toggle theme"
+      title="Toggle theme"
+    >
+      {isDark ? <Sun size={18} /> : <Moon size={18} />}
+    </button>
+  );
+};
 
 export default Header;
