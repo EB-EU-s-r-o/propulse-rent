@@ -53,7 +53,7 @@ const Header = ({ toggleSidebar, sidebarOpen }: HeaderProps) => {
   return (
     <header
       className={`fixed top-0 right-0 z-40 transition-all duration-300 border-b border-border
-      ${isScrolled ? 'bg-white py-3' : 'bg-white py-4'}
+      ${isScrolled ? 'bg-background py-3' : 'bg-background py-4'}
       ${sidebarOpen ? 'left-64' : 'left-20'}`}
     >
       <div className="px-6 flex items-center justify-between">
@@ -68,8 +68,8 @@ const Header = ({ toggleSidebar, sidebarOpen }: HeaderProps) => {
           </button>
 
           {/* Search Bar */}
-          <div className="hidden md:flex items-center gap-2 bg-white border border-input rounded-none px-4 py-2 min-w-[280px] hover:border-black transition-colors group focus-within:border-black focus-within:ring-0">
-            <Search size={16} className="text-muted-foreground group-focus-within:text-black transition-colors" />
+          <div className="hidden md:flex items-center gap-2 bg-background border border-input rounded-none px-4 py-2 min-w-[280px] hover:border-foreground transition-colors group focus-within:border-foreground focus-within:ring-0">
+            <Search size={16} className="text-muted-foreground group-focus-within:text-foreground transition-colors" />
             <input
               type="text"
               placeholder="Search properties, leads..."
@@ -95,9 +95,9 @@ const Header = ({ toggleSidebar, sidebarOpen }: HeaderProps) => {
           ) : (
             <div className="flex gap-8 animate-in fade-in duration-500">
               <StatItem label="Properties" value={totalProperties} />
-              <StatItem label="Active Units" value={activeUnits} className="text-black" />
-              <StatItem label="New Leads" value={totalLeads} className="text-black" />
-              <StatItem label="Revenue" value={formatCurrency(monthlyRevenue)} className="text-black" />
+              <StatItem label="Active Units" value={activeUnits} className="text-foreground" />
+              <StatItem label="New Leads" value={totalLeads} className="text-foreground" />
+              <StatItem label="Revenue" value={formatCurrency(monthlyRevenue)} className="text-foreground" />
             </div>
           )}
         </div>
@@ -105,7 +105,7 @@ const Header = ({ toggleSidebar, sidebarOpen }: HeaderProps) => {
         {/* Right: Actions */}
         <div className="flex items-center gap-2">
           {/* New Lead Button */}
-          <button className="hidden sm:flex items-center gap-2 bg-black text-white px-4 py-2 rounded-none text-sm font-medium transition-all hover:bg-black/90 active:scale-95">
+          <button className="hidden sm:flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-none text-sm font-medium transition-all hover:bg-primary/90 active:scale-95">
             <Plus size={16} />
             New Lead
           </button>
@@ -118,7 +118,7 @@ const Header = ({ toggleSidebar, sidebarOpen }: HeaderProps) => {
 
           <div className="relative">
             <IconButton icon={<Bell size={18} />} label="Notifications" />
-            <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-black ring-2 ring-white" />
+            <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-destructive ring-2 ring-background" />
           </div>
 
           <div className="h-8 w-px bg-border mx-2" />
@@ -130,8 +130,8 @@ const Header = ({ toggleSidebar, sidebarOpen }: HeaderProps) => {
               aria-label="User menu"
               className={`user-profile-trigger flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-200 ${isUserDropdownOpen ? 'text-foreground' : ''}`}
             >
-              <div className={`w-9 h-9 rounded-none bg-secondary border border-border flex items-center justify-center overflow-hidden transition-all ${isUserDropdownOpen ? 'border-black' : ''}`}>
-                <User size={18} className={isUserDropdownOpen ? 'text-black' : ''} />
+              <div className={`w-9 h-9 rounded-none bg-secondary border border-border flex items-center justify-center overflow-hidden transition-all ${isUserDropdownOpen ? 'border-foreground' : ''}`}>
+                <User size={18} className={isUserDropdownOpen ? 'text-foreground' : ''} />
               </div>
             </button>
 

@@ -1,24 +1,41 @@
-/* Custom scrollbar for dark theme */
+/* Custom scrollbar for light theme */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(240 10% 6%);
+  background: hsl(0 0% 96%);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(240 5% 20%);
+  background: hsl(0 0% 80%);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
+  background: hsl(0 0% 70%);
+}
+
+/* Custom scrollbar for dark theme */
+.dark ::-webkit-scrollbar-track {
+  background: hsl(240 10% 6%);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(240 5% 20%);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
   background: hsl(240 5% 30%);
 }
 
 /* Firefox scrollbar */
 * {
   scrollbar-width: thin;
+  scrollbar-color: hsl(0 0% 80%) hsl(0 0% 96%);
+}
+
+.dark * {
   scrollbar-color: hsl(240 5% 20%) hsl(240 10% 6%);
 }
