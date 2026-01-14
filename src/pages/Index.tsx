@@ -41,7 +41,7 @@ const Index = () => {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
         <div className="flex flex-col items-center gap-4">
-          <div className="w-12 h-12 bg-black text-white rounded-none animate-pulse flex items-center justify-center">
+          <div className="w-12 h-12 bg-primary text-primary-foreground rounded-none animate-pulse flex items-center justify-center">
             <span className="font-bold text-xl">R</span>
           </div>
           <p className="text-muted-foreground text-sm">Loading dashboard...</p>

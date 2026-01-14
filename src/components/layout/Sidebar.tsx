@@ -35,17 +35,17 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
 
   return (
     <aside
-      className={`fixed left-0 top-0 h-screen bg-white border-r border-border transition-all duration-300 z-50 flex flex-col
+      className={`fixed left-0 top-0 h-screen bg-sidebar border-r border-sidebar-border transition-all duration-300 z-50 flex flex-col
       ${isOpen ? 'w-64' : 'w-20'}`}
     >
       {/* Logo */}
-      <div className="h-16 flex items-center justify-between px-4 border-b border-border">
+      <div className="h-16 flex items-center justify-between px-4 border-b border-sidebar-border">
         <Link to="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-black text-white rounded-none flex items-center justify-center">
+          <div className="w-10 h-10 bg-primary text-primary-foreground rounded-none flex items-center justify-center">
             <span className="font-bold text-lg">R</span>
           </div>
           {isOpen && (
-            <span className="text-xl font-bold tracking-tight text-black animate-fade-in">
+            <span className="text-xl font-bold tracking-tight text-foreground animate-fade-in">
               ROOF<span className="font-light">21</span>
             </span>
           )}
@@ -55,7 +55,7 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="absolute -right-3 top-20 bg-white border border-border text-muted-foreground rounded-none p-1.5 hover:text-black hover:border-black transition-all z-50"
+        className="absolute -right-3 top-20 bg-card border border-border text-muted-foreground rounded-none p-1.5 hover:text-foreground hover:border-foreground transition-all z-50"
       >
         {isOpen ? <ChevronLeft size={14} /> : <ChevronRight size={14} />}
       </button>
@@ -71,11 +71,11 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
             <Link
               key={item.name}
               to={item.href}
-              className={`nav-item group relative ${isActive ? 'active bg-secondary/50 border-l-2 border-black' : 'hover:bg-secondary/30 border-l-2 border-transparent'}`}
+              className={`nav-item group relative ${isActive ? 'active bg-secondary/50 border-l-2 border-foreground' : 'hover:bg-secondary/30 border-l-2 border-transparent'}`}
             >
               <Icon
                 size={20}
-                className={`${isActive ? 'text-black' : 'text-muted-foreground group-hover:text-black'} transition-colors flex-shrink-0 ml-3`}
+                className={`${isActive ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'} transition-colors flex-shrink-0 ml-3`}
               />
 
               {isOpen && (
@@ -85,17 +85,17 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
               {/* Badge */}
               {item.badge && (
                 isOpen ? (
-                  <span className="ml-auto mr-3 bg-black text-white text-xs font-bold px-2 py-0.5 rounded-none">
+                  <span className="ml-auto mr-3 bg-primary text-primary-foreground text-xs font-bold px-2 py-0.5 rounded-none">
                     {item.badge}
                   </span>
                 ) : (
-                  <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-black" />
+                  <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-primary" />
                 )
               )}
 
               {/* Tooltip */}
               {!isOpen && (
-                <div className="absolute left-full ml-3 px-2 py-1 bg-black text-white text-xs rounded-none opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap shadow-lg transition-opacity">
+                <div className="absolute left-full ml-3 px-2 py-1 bg-popover text-popover-foreground text-xs rounded-none opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap shadow-lg transition-opacity border border-border">
                   {item.name}
                 </div>
               )}
@@ -105,12 +105,12 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
       </nav>
 
       {/* Footer */}
-      <div className="px-0 py-4 border-t border-border space-y-0">
+      <div className="px-0 py-4 border-t border-sidebar-border space-y-0">
         <Link
           to="/settings"
           className="nav-item group hover:bg-secondary/30 border-l-2 border-transparent"
         >
-          <Settings size={20} className="text-muted-foreground group-hover:text-black ml-3" />
+          <Settings size={20} className="text-muted-foreground group-hover:text-foreground ml-3" />
           {isOpen && <span className="ml-3 font-medium">Settings</span>}
         </Link>
         <button className="nav-item group w-full text-destructive hover:bg-destructive/10 border-l-2 border-transparent">

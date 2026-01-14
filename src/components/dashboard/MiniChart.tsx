@@ -1,5 +1,5 @@
 import { AreaChart, Area, ResponsiveContainer, Tooltip } from 'recharts';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface MiniChartProps {
   data: { value: number }[];
@@ -7,14 +7,34 @@ interface MiniChartProps {
   height?: number;
 }
 
-const MiniChart = ({ data, color = 'hsl(217, 91%, 60%)', height = 60 }: MiniChartProps) => {
+const MiniChart = ({ data, color = 'hsl(142, 76%, 36%)', height = 60 }: MiniChartProps) => {
   const chartRef = useRef<HTMLDivElement>(null);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     if (chartRef.current) {
       chartRef.current.style.setProperty('--chart-height', `${height}px`);
     }
   }, [height]);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    checkTheme();
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
+
+  const tooltipStyle = {
+    background: isDark ? 'hsl(240, 10%, 8%)' : 'hsl(0, 0%, 100%)',
+    border: isDark ? '1px solid hsl(240, 5%, 18%)' : '1px solid hsl(0, 0%, 90%)',
+    borderRadius: '0px',
+    fontSize: '12px',
+    fontFamily: 'SF Mono, ui-monospace, monospace',
+    color: isDark ? 'hsl(0, 0%, 95%)' : 'hsl(0, 0%, 0%)'
+  };
 
   return (
     <div
@@ -30,13 +50,7 @@ const MiniChart = ({ data, color = 'hsl(217, 91%, 60%)', height = 60 }: MiniChar
             </linearGradient>
           </defs>
           <Tooltip
-            contentStyle={{
-              background: 'hsl(240, 10%, 6%)',
-              border: '1px solid hsl(240, 5%, 18%)',
-              borderRadius: '0px',
-              fontSize: '12px',
-              fontFamily: 'JetBrains Mono, monospace'
-            }}
+            contentStyle={tooltipStyle}
             labelStyle={{ display: 'none' }}
             formatter={(value: number) => [`฿${value.toLocaleString()}`, 'Revenue']}
           />
