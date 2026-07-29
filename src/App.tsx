@@ -8,9 +8,12 @@ import Index from "./pages/Index";
 import Properties from "./pages/Properties";
 import Pipeline from "./pages/Pipeline";
 import Payments from "./pages/Payments";
+import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 import { useDashboardStore } from "@/store/dashboardStore";
+import { AuthProvider } from "@/hooks/useAuth";
+import ProtectedRoute from "@/components/auth/ProtectedRoute";
 
 import AmbientBackground from "@/components/ui/AmbientBackground";
 import WelcomeScreen from "@/components/layout/WelcomeScreen";
@@ -32,19 +35,28 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route element={<DashboardLayout />}>
-              <Route path="/" element={<Index />} />
-              <Route path="/properties" element={<Properties />} />
-              <Route path="/pipeline" element={<Pipeline />} />
-              <Route path="/payments" element={<Payments />} />
-              <Route path="/leads" element={<Pipeline />} />
-              <Route path="/deals" element={<Pipeline />} />
-              <Route path="/reports" element={<Index />} />
-              <Route path="/settings" element={<Index />} />
-            </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AuthProvider>
+            <Routes>
+              <Route path="/auth" element={<Auth />} />
+              <Route
+                element={
+                  <ProtectedRoute>
+                    <DashboardLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route path="/" element={<Index />} />
+                <Route path="/properties" element={<Properties />} />
+                <Route path="/pipeline" element={<Pipeline />} />
+                <Route path="/payments" element={<Payments />} />
+                <Route path="/leads" element={<Pipeline />} />
+                <Route path="/deals" element={<Pipeline />} />
+                <Route path="/reports" element={<Index />} />
+                <Route path="/settings" element={<Index />} />
+              </Route>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </AuthProvider>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
