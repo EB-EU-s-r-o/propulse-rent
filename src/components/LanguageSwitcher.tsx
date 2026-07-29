@@ -1,10 +1,12 @@
 import React from 'react';
 import { Globe } from 'lucide-react';
+import { logger } from '@/lib/logger';
 
 export const LanguageSwitcher = () => {
   const changeLanguage = (lng: string) => {
-    console.log(`Switching to ${lng}`);
+    logger.debug(`Switching to ${lng}`);
   };
+
 
   return (
     <div className="flex items-center gap-2 bg-card border border-border rounded-lg px-3 py-1.5">
