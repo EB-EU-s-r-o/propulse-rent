@@ -140,12 +140,8 @@ const Header = ({ toggleSidebar, sidebarOpen }: HeaderProps) => {
               <UserDropdown
                 isOpen={isUserDropdownOpen}
                 onClose={() => setIsUserDropdownOpen(false)}
-                user={{
-                  name: "Admin User",
-                  role: "Administrator",
-                  avatar: "https://ui-avatars.com/api/?name=Admin&background=000000&color=fff"
-                }}
               />
+
             </div>
           </div>
         </div>
