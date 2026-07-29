@@ -25,11 +25,11 @@ export const UserDropdown = ({ isOpen, user, onClose }) => {
 
             {/* Quick Actions Grid */}
             <div className="action-grid">
-                <button className="action-card" onClick={() => console.log('Security')}>
+                <button className="action-card" onClick={onClose}>
                     <Shield size={20} />
                     <span>Security</span>
                 </button>
-                <button className="action-card" onClick={() => console.log('Extensions')}>
+                <button className="action-card" onClick={onClose}>
                     <Box size={20} />
                     <span>Extensions</span>
                 </button>
