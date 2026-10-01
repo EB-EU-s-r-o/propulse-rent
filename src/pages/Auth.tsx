@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { logger } from "@/lib/logger";
+import { lovable } from "@/integrations/lovable/index";
 
 const credentialsSchema = z.object({
   email: z.string().trim().email({ message: "Enter a valid email address" }).max(255),
