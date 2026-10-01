@@ -22,6 +22,28 @@ const Auth = () => {
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [googleSubmitting, setGoogleSubmitting] = useState(false);
+
+  const handleGoogleSignIn = async () => {
+    setGoogleSubmitting(true);
+    try {
+      const result = await lovable.auth.signInWithOAuth("google", {
+        redirect_uri: window.location.origin,
+      });
+      if (result.error) {
+        logger.error("google sign-in failed", result.error);
+        toast.error("Google sign-in failed. Please try again.");
+        setGoogleSubmitting(false);
+        return;
+      }
+      if (result.redirected) return; // Browser is redirecting to Google
+      // Session set — onAuthStateChange navigates to "/"
+    } catch (error) {
+      logger.error("google sign-in failed", error);
+      toast.error("Google sign-in failed. Please try again.");
+      setGoogleSubmitting(false);
+    }
+  };
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
