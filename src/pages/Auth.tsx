@@ -23,25 +23,27 @@ const Auth = () => {
   const [displayName, setDisplayName] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [googleSubmitting, setGoogleSubmitting] = useState(false);
+  const [appleSubmitting, setAppleSubmitting] = useState(false);
 
-  const handleGoogleSignIn = async () => {
-    setGoogleSubmitting(true);
+  const handleOAuthSignIn = async (provider: "google" | "apple") => {
+    const setSubmitting = provider === "google" ? setGoogleSubmitting : setAppleSubmitting;
+    setSubmitting(true);
     try {
-      const result = await lovable.auth.signInWithOAuth("google", {
+      const result = await lovable.auth.signInWithOAuth(provider, {
         redirect_uri: window.location.origin,
       });
       if (result.error) {
-        logger.error("google sign-in failed", result.error);
-        toast.error("Google sign-in failed. Please try again.");
-        setGoogleSubmitting(false);
+        logger.error(`${provider} sign-in failed`, result.error);
+        toast.error(`${provider === "google" ? "Google" : "Apple"} sign-in failed. Please try again.`);
+        setSubmitting(false);
         return;
       }
-      if (result.redirected) return; // Browser is redirecting to Google
+      if (result.redirected) return; // Browser is redirecting to the provider
       // Session set — onAuthStateChange navigates to "/"
     } catch (error) {
-      logger.error("google sign-in failed", error);
-      toast.error("Google sign-in failed. Please try again.");
-      setGoogleSubmitting(false);
+      logger.error(`${provider} sign-in failed`, error);
+      toast.error(`${provider === "google" ? "Google" : "Apple"} sign-in failed. Please try again.`);
+      setSubmitting(false);
     }
   };
 
@@ -108,9 +110,9 @@ const Auth = () => {
         <Button
           type="button"
           variant="outline"
-          className="mb-4 w-full"
-          onClick={handleGoogleSignIn}
-          disabled={googleSubmitting || submitting}
+          className="mb-2 w-full"
+          onClick={() => handleOAuthSignIn("google")}
+          disabled={googleSubmitting || appleSubmitting || submitting}
         >
           <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
             <path
@@ -119,6 +121,21 @@ const Auth = () => {
             />
           </svg>
           {googleSubmitting ? "Redirecting…" : "Continue with Google"}
+        </Button>
+        <Button
+          type="button"
+          variant="outline"
+          className="mb-4 w-full"
+          onClick={() => handleOAuthSignIn("apple")}
+          disabled={googleSubmitting || appleSubmitting || submitting}
+        >
+          <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M16.365 1.43c0 1.14-.417 2.2-1.25 3.05-.833.85-1.883 1.34-3.033 1.26-.083-1.08.417-2.21 1.217-3.02.833-.87 2-1.37 3.066-1.29zM20.94 17.1c-.5 1.15-.74 1.66-1.383 2.68-.9 1.41-2.167 3.17-3.733 3.18-1.4.03-1.76-.91-3.653-.9-1.9.01-2.3.94-3.7.91-1.567-.01-2.767-1.6-3.667-3.01-2.516-3.83-2.783-8.32-1.233-10.71 1.1-1.7 2.833-2.69 4.467-2.69 1.667 0 2.717.92 4.1.92 1.333 0 2.15-.92 4.083-.92 1.45 0 2.983.79 4.083 2.15-3.583 1.97-3 7.09.7 8.39z"
+            />
+          </svg>
+          {appleSubmitting ? "Redirecting…" : "Continue with Apple"}
         </Button>
 
         <div className="mb-4 flex items-center gap-3">
